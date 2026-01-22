@@ -728,7 +728,7 @@ async function handleToolCall(name: string, args: any): Promise<any> {
 
   try {
     // Auto-launch browser if needed
-    if (!browser.isLaunched() && !name.includes('session_list') && !name.includes('close')) {
+    if (!browser.isLaunched() && !name.includes('session_list') && name !== 'browser_close') {
       await browser.launch({
         id: 'auto',
         action: 'launch',
