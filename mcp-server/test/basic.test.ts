@@ -8,7 +8,7 @@ describe("MCP Server", () => {
 
   it("should have correct package name", async () => {
     const pkg = await import("../package.json");
-    expect(pkg.name).toBe("agent-browser-mcp-server");
+    expect(pkg.name).toBe("@agent-browser/mcp-server");
   });
 
   it("should have Apache-2.0 license", async () => {
