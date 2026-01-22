@@ -1186,18 +1186,12 @@ async function handleToolCall(name: string, args: any): Promise<any> {
 
       // ============= DIALOGS =============
       case 'browser_dialog_accept': {
-        const page = browser.getPage();
-        page.once('dialog', async (dialog) => {
-          await dialog.accept(args.text);
-        });
+        browser.setDialogHandler('accept', args.text);
         return { content: [{ type: 'text', text: 'Dialog handler set to accept' }] };
       }
 
       case 'browser_dialog_dismiss': {
-        const page = browser.getPage();
-        page.once('dialog', async (dialog) => {
-          await dialog.dismiss();
-        });
+        browser.setDialogHandler('dismiss');
         return {
           content: [{ type: 'text', text: 'Dialog handler set to dismiss' }],
         };
